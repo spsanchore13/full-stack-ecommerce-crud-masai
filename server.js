@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const productRouter = require("./routes/product.route");
 require("dotenv").config();
-const PORT = process.env.REACT_APP_BACKEND_SERVER_PORT;
+const PORT = process.env.REACT_APP_BACKEND_SERVER_PORT || 8080;
 const server = express();
 
 server.use(express.json());
