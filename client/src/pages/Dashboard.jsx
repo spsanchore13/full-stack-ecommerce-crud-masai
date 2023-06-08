@@ -23,9 +23,7 @@ const Dashboard = () => {
   });
 
   const getProducts = () => {
-    axios(
-      `http://localhost:${process.env.REACT_APP_BACKEND_SERVER_PORT}/products`
-    )
+    axios(`https://bright-fedora-fox.cyclic.app/products`)
       .then((res) => {
         // console.log(res.data);
         setProducts(res.data);
@@ -41,12 +39,9 @@ const Dashboard = () => {
     e.preventDefault();
 
     axios
-      .post(
-        `http://localhost:${process.env.REACT_APP_BACKEND_SERVER_PORT}/products/add`,
-        {
-          ...addItem,
-        }
-      )
+      .post(`https://bright-fedora-fox.cyclic.app/products/add`, {
+        ...addItem,
+      })
       .then((res) => {
         console.log(res);
         setAddItem({
@@ -79,7 +74,7 @@ const Dashboard = () => {
 
     axios
       .patch(
-        `http://localhost:${process.env.REACT_APP_BACKEND_SERVER_PORT}/products/update/${updateItem.id}`,
+        `https://bright-fedora-fox.cyclic.app/products/update/${updateItem.id}`,
         {
           ...updateItem,
         }
@@ -103,9 +98,7 @@ const Dashboard = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(
-        `http://localhost:${process.env.REACT_APP_BACKEND_SERVER_PORT}/products/delete/${id}`
-      )
+      .delete(`https://bright-fedora-fox.cyclic.app/products/delete/${id}`)
       .then((res) => {
         console.log(res);
         getProducts();
