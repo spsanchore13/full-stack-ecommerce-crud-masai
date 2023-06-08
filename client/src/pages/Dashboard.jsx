@@ -23,7 +23,7 @@ const Dashboard = () => {
   });
 
   const getProducts = () => {
-    axios(`https://bright-fedora-fox.cyclic.app/products`)
+    axios(`https://masai-ecommerce-server.onrender.com/products`)
       .then((res) => {
         // console.log(res.data);
         setProducts(res.data);
@@ -39,7 +39,7 @@ const Dashboard = () => {
     e.preventDefault();
 
     axios
-      .post(`https://bright-fedora-fox.cyclic.app/products/add`, {
+      .post(`https://masai-ecommerce-server.onrender.com/products/add`, {
         ...addItem,
       })
       .then((res) => {
@@ -74,7 +74,7 @@ const Dashboard = () => {
 
     axios
       .patch(
-        `https://bright-fedora-fox.cyclic.app/products/update/${updateItem.id}`,
+        `https://masai-ecommerce-server.onrender.com/products/update/${updateItem.id}`,
         {
           ...updateItem,
         }
@@ -98,7 +98,9 @@ const Dashboard = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://bright-fedora-fox.cyclic.app/products/delete/${id}`)
+      .delete(
+        `https://masai-ecommerce-server.onrender.com/products/delete/${id}`
+      )
       .then((res) => {
         console.log(res);
         getProducts();
